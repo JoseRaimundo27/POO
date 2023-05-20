@@ -36,10 +36,5 @@ public class Imovel
 	   return "--------------------" + "\n iptu = " + this.iptu + "\n tipo = "+this.tipo+ "\n utilização = " + this.utilizacao + "\n rua = " + endereco_imovel.getRua()+ "\n numero = "+ endereco_imovel.getNumero() + "\n cep = " + endereco_imovel.getCep() + "\n cidade = " + endereco_imovel.getCidade() + "\n estado = " + endereco_imovel.getEstado() + "\n --------------------";
    }
    
-   
-   
-    
-    
-
 }
 
