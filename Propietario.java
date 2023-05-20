@@ -1,18 +1,17 @@
+import java.util.ArrayList;
 
 public class Propietario {
-    private int cpf, rg, numero, cep;
-    private String cidade,estado, rua;
-    
-    public Propietario(int cpf, String rua,int rg,  int numero, int cep, String cidade, String estado) {
+    private int cpf, rg;
+    private Endereco endereco;
+    private ArrayList<Imovel> imoveis_do_propietario = new ArrayList<Imovel>();
+    public Propietario(int cpf,int rg, String rua, int cep,String cidade, String estado,int numero , Imovel imovel) {
         this.setCpf(cpf);
-        this.setRua(rua);
-        this.setNumero(numero);
-        this.setCep(cep);
-        this.setCidade(cidade);
-        this.setEstado(estado);
         this.setRg(rg);
+        this.endereco = new Endereco(rua,numero, cep, cidade, estado );//COMPOSIÇÃO FORTE!
+        this.imoveis_do_propietario.add(imovel);
     }
 
+    
     public int getCpf() {
         return cpf;
     }
@@ -28,63 +27,22 @@ public class Propietario {
     public void setRg(int rg) {
         this.rg = rg;
     }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    
+    public void adicionaImovel(Imovel imovel) {
+    	this.imoveis_do_propietario.add(imovel);
     }
     
-    //Método de atualização de endereço
-    public void atualizaEndereco(String rua,String cidade, String estado, int cep, int numero){
-        this.cidade = cidade;
-        this.estado = estado;
-        this.rua = rua;
-        this.cep = cep;
-        this.numero = numero;
-        
-        }
-    public void atualizaEndereco(String rua, int cep, int numero){
-        this.rua = rua;
-        this.cep = cep;
-        this.numero = numero;
-        
-        }
-
+    public void listaImoveis(){
+    	for(int i=0; i<this.imoveis_do_propietario.size(); i++) {
+    		System.out.println(this.imoveis_do_propietario.get(i).toString()); 
+    	}
+    }
     
+    public void listaImoveisPorTipo(String tipo){
+    	for(int i=0; i<this.imoveis_do_propietario.size(); i++) {
+    		if(this.imoveis_do_propietario.get(i).getTipo().equals(tipo))
+    		System.out.println(this.imoveis_do_propietario.get(i).toString()); 
+    	}
+    }
 
 }
