@@ -88,4 +88,8 @@ public class Endereco {
     }
     return false;
   }
+  
+  public String toString(){
+    return "\nrua: " + this.rua + "\ncidade: " + this.cidade + "\nestado: " + this.estado + "\nnumero: " +  this.numero; 
+  }
 }

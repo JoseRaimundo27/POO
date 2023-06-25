@@ -1,5 +1,5 @@
 
-public class Imovel
+public  class Imovel
 {
     private int iptu;
     private String tipo, utilizacao;
@@ -37,8 +37,8 @@ public class Imovel
    }
    
    
-   
-    
+ 
+  
     
 
 }
